@@ -19,8 +19,8 @@ export default function Register() {
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = "";
-
+    // const data = "";
+    setIsLoading(false);
     navigate("/auth/confirm-mail", { state: { type: "account-creation" } });
   };
 

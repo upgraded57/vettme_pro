@@ -11,7 +11,7 @@ export default function ForgotPassword() {
 
   const handleReset = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsLoading(false);
     navigate("/auth/confirm-mail", { state: { type: "account-recovery" } });
   };
   return (

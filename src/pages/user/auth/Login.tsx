@@ -18,7 +18,7 @@ export default function Login() {
     setIsLoading(true);
     localStorage.setItem("isLoggedIn", "1");
     e.preventDefault();
-    const data = "";
+    // const data = "";
 
     setTimeout(() => {
       setIsLoading(false);

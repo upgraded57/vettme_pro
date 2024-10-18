@@ -14,6 +14,7 @@ export default function ResetPassword() {
 
   const handleReset = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(false);
   };
   return (
     <div className="flex flex-col items-center justify-center">
