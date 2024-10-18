@@ -1,9 +1,11 @@
 import Skeleton from "@/components/Skeleton";
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 export default function AppIndex() {
-  return (
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  return isLoggedIn ? (
     <Suspense
       fallback={
         <div className="w-full min-h-[500px] h-full flex items-center justify-center">
@@ -13,5 +15,7 @@ export default function AppIndex() {
     >
       <Outlet />
     </Suspense>
+  ) : (
+    <Navigate to="/auth/login" />
   );
 }

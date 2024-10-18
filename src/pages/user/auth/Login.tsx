@@ -16,6 +16,7 @@ export default function Login() {
 
   const handleSignin = (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
+    localStorage.setItem("isLoggedIn", "1");
     e.preventDefault();
     const data = "";
 
