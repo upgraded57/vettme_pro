@@ -524,7 +524,7 @@ export default function Forms() {
           Submit Data for Verification
         </Button>
       </form>
-      {modalOpen && <UserFormSumitted isOpen={modalOpen} />}
+      {<UserFormSumitted isOpen={modalOpen} />}
     </>
   );
 }

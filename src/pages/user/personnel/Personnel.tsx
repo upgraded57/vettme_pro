@@ -1,10 +1,12 @@
 import DeleteVerification from "@/components/modals/DeleteVerification";
 import { Button } from "@/components/ui/button";
+import { TrashIcon } from "@radix-ui/react-icons";
 import {
-  TrashIcon,
-  TriangleDownIcon,
-  TriangleRightIcon,
-} from "@radix-ui/react-icons";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useState } from "react";
 import {
   Table,
@@ -54,7 +56,6 @@ export default function Personnel() {
   const location = useLocation();
   const { state } = location;
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<1 | 2 | 3 | 4 | 5>(1);
 
   const headers = [
     {
@@ -78,14 +79,23 @@ export default function Personnel() {
       text: "7/41",
     },
   ];
+
+  const tabs = [
+    "Personal Information",
+    "Guarantor's Information",
+    "Academic Information",
+    "Professional Information",
+    "Mental Assessment Information",
+  ];
+
   return (
     <>
-      {deleteModalOpen && (
+      {
         <DeleteVerification
           isOpen={deleteModalOpen}
           setIsOpen={setDeleteModalOpen}
         />
-      )}
+      }
 
       <div className="mb-[30px] flex justify-between items-center">
         <div>
@@ -114,185 +124,46 @@ export default function Personnel() {
         ))}
       </div>
 
-      <div className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]">
-        <div
-          className="py-5 px-7 flex justify-between items-center cursor-pointer"
-          onClick={() => setActiveTab(1)}
-        >
-          <p className="text-[16px] font-medium">Personal Information</p>
-          {activeTab === 1 ? <TriangleDownIcon /> : <TriangleRightIcon />}
-        </div>
-        {activeTab === 1 && (
-          <Table>
-            <TableHeader className="bg-stroke-clr">
-              <TableRow>
-                <TableHead className="w-1/6">Data</TableHead>
-                <TableHead className="w-2/6">Claim</TableHead>
-                <TableHead className="w-2/6">Finding</TableHead>
-                <TableHead className="w-1/6">Verdict</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.map((item, idx) => (
-                <TableRow key={idx}>
-                  <TableCell className="font-medium w-1/6">
-                    {item.data}
-                  </TableCell>
-                  <TableCell className="w-2/6">{item.claim}</TableCell>
-                  <TableCell className="w-2/6">{item.finding}</TableCell>
-                  <TableCell className="w-1/6">
-                    <Badge>{item.verdict}</Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </div>
-
-      <div className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]">
-        <div
-          className="py-5 px-7 flex justify-between items-center cursor-pointer"
-          onClick={() => setActiveTab(2)}
-        >
-          <p className="text-[16px] font-medium">Guarantor's Information</p>
-          {activeTab === 2 ? <TriangleDownIcon /> : <TriangleRightIcon />}
-        </div>
-        {activeTab === 2 && (
-          <Table>
-            <TableHeader className="bg-stroke-clr">
-              <TableRow>
-                <TableHead className="w-1/6">Data</TableHead>
-                <TableHead className="w-2/6">Claim</TableHead>
-                <TableHead className="w-2/6">Finding</TableHead>
-                <TableHead className="w-1/6">Verdict</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.map((item, idx) => (
-                <TableRow key={idx}>
-                  <TableCell className="font-medium w-1/6">
-                    {item.data}
-                  </TableCell>
-                  <TableCell className="w-2/6">{item.claim}</TableCell>
-                  <TableCell className="w-2/6">{item.finding}</TableCell>
-                  <TableCell className="w-1/6">
-                    <Badge>{item.verdict}</Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </div>
-
-      <div className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]">
-        <div
-          className="py-5 px-7  flex justify-between items-center cursor-pointer"
-          onClick={() => setActiveTab(3)}
-        >
-          <p className="text-[16px] font-medium">Academic Information</p>
-          {activeTab === 3 ? <TriangleDownIcon /> : <TriangleRightIcon />}
-        </div>
-        {activeTab === 3 && (
-          <Table>
-            <TableHeader className="bg-stroke-clr">
-              <TableRow>
-                <TableHead className="w-1/6">Data</TableHead>
-                <TableHead className="w-2/6">Claim</TableHead>
-                <TableHead className="w-2/6">Finding</TableHead>
-                <TableHead className="w-1/6">Verdict</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.map((item, idx) => (
-                <TableRow key={idx}>
-                  <TableCell className="font-medium w-1/6">
-                    {item.data}
-                  </TableCell>
-                  <TableCell className="w-2/6">{item.claim}</TableCell>
-                  <TableCell className="w-2/6">{item.finding}</TableCell>
-                  <TableCell className="w-1/6">
-                    <Badge>{item.verdict}</Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </div>
-
-      <div className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]">
-        <div
-          className="py-5 px-7 flex justify-between items-center cursor-pointer"
-          onClick={() => setActiveTab(4)}
-        >
-          <p className="text-[16px] font-medium">Professional Information</p>
-          {activeTab === 4 ? <TriangleDownIcon /> : <TriangleRightIcon />}
-        </div>
-        {activeTab === 4 && (
-          <Table>
-            <TableHeader className="bg-stroke-clr">
-              <TableRow>
-                <TableHead className="w-1/6">Data</TableHead>
-                <TableHead className="w-2/6">Claim</TableHead>
-                <TableHead className="w-2/6">Finding</TableHead>
-                <TableHead className="w-1/6">Verdict</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.map((item, idx) => (
-                <TableRow key={idx}>
-                  <TableCell className="font-medium w-1/6">
-                    {item.data}
-                  </TableCell>
-                  <TableCell className="w-2/6">{item.claim}</TableCell>
-                  <TableCell className="w-2/6">{item.finding}</TableCell>
-                  <TableCell className="w-1/6">
-                    <Badge>{item.verdict}</Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </div>
-
-      <div className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]">
-        <div
-          className="py-5 px-7 flex justify-between items-center cursor-pointer"
-          onClick={() => setActiveTab(5)}
-        >
-          <p className="text-[16px] font-medium">Mental Health Assessment</p>
-          {activeTab === 5 ? <TriangleDownIcon /> : <TriangleRightIcon />}
-        </div>
-        {activeTab === 5 && (
-          <Table>
-            <TableHeader className="bg-stroke-clr">
-              <TableRow>
-                <TableHead className="w-1/6">Data</TableHead>
-                <TableHead className="w-2/6">Claim</TableHead>
-                <TableHead className="w-2/6">Finding</TableHead>
-                <TableHead className="w-1/6">Verdict</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data.map((item, idx) => (
-                <TableRow key={idx}>
-                  <TableCell className="font-medium w-1/6">
-                    {item.data}
-                  </TableCell>
-                  <TableCell className="w-2/6">{item.claim}</TableCell>
-                  <TableCell className="w-2/6">{item.finding}</TableCell>
-                  <TableCell className="w-1/6">
-                    <Badge>{item.verdict}</Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        )}
-      </div>
+      <Accordion type="single" collapsible>
+        {tabs.map((tab, idx) => (
+          <div
+            key={idx}
+            className="w-full rounded-xl bg-white border-[1px] border-stroke-clr overflow-hidden mb-[30px]"
+          >
+            <AccordionItem value={"item-" + (idx + 1)}>
+              <AccordionTrigger className="px-7">
+                <p className="text-[16px] font-medium">{tab}</p>
+              </AccordionTrigger>
+              <AccordionContent>
+                <Table>
+                  <TableHeader className="bg-stroke-clr">
+                    <TableRow>
+                      <TableHead className="w-1/6">Data</TableHead>
+                      <TableHead className="w-2/6">Claim</TableHead>
+                      <TableHead className="w-2/6">Finding</TableHead>
+                      <TableHead className="w-1/6">Verdict</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {data.map((item, idx) => (
+                      <TableRow key={idx}>
+                        <TableCell className="font-medium w-1/6">
+                          {item.data}
+                        </TableCell>
+                        <TableCell className="w-2/6">{item.claim}</TableCell>
+                        <TableCell className="w-2/6">{item.finding}</TableCell>
+                        <TableCell className="w-1/6">
+                          <Badge>{item.verdict}</Badge>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </AccordionContent>
+            </AccordionItem>
+          </div>
+        ))}
+      </Accordion>
 
       <div className="flex gap-3">
         <Button className="red-gradient">Download Data</Button>

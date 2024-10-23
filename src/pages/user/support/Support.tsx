@@ -83,8 +83,8 @@ export default function Support() {
                 }`}
               >
                 <p className="text-xs">{message.text}</p>
-                <hr className="my-1" />
-                <p className="text-[8px] text-right font-medium">
+                <hr className="my-1 bg-white border-white" />
+                <p className="text-[8px] text-right font-medium opacity-50">
                   {message.time}
                 </p>
               </div>
@@ -101,6 +101,7 @@ export default function Support() {
             </Button>
           </div>
         </div>
+
         <div className="basis-1/3 flex flex-col gap-6">
           <div className="w-full bg-white p-4 border-[1px] border-stroke-clr rounded-xl">
             <h3 className="font-semibold">Call for Help</h3>
