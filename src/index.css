@@ -92,6 +92,7 @@ body {
 
 ::placeholder {
   color: var(--stroke-clr) !important;
+  font-weight: 300 !important;
 }
 
 h1 {
@@ -109,7 +110,13 @@ p {
 }
 
 .red-gradient {
-  background: linear-gradient(240deg, #ff4444, #992929);
+  background: linear-gradient(240deg, #ff4444, #ad2626, #ff4444);
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.red-gradient:hover {
+  background-position: 100% 200%;
 }
 
 a.nav-link {
@@ -207,6 +214,10 @@ a.nav-link.active .nav-icon {
   border: none !important;
   background: #f8f6f6 !important;
   border-radius: 20px !important;
+}
+
+.wallet {
+  background: linear-gradient(60deg, #7286e9, #374798);
 }
 
 /* Screen notice style */

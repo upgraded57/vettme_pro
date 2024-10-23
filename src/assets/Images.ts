@@ -4,6 +4,9 @@ import mail from "@/assets/images/mail.svg";
 import mailbox from "@/assets/images/mailbox.webp";
 import thumb from "@/assets/images/thumb.webp";
 import screens from "@/assets/images/screens.png";
+import favicon from "@/assets/images/favicon.png";
+import phone from "@/assets/images/phone.png";
+import email from "@/assets/images/email.png";
 
 const images = {
   authImg,
@@ -12,6 +15,9 @@ const images = {
   mailbox,
   thumb,
   screens,
+  favicon,
+  phone,
+  email,
 };
 
 export default images;
