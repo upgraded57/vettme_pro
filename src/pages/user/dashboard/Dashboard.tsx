@@ -92,7 +92,7 @@ export default function Dashboard() {
 
       <div className="w-full p-4 bg-white border-[1px] border-stroke-clr rounded-xl">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="font-medium">Recent Items</h3>
+          <h3 className="font-medium">Recent Activities</h3>
           <Link to="/notifications" className="text-sm hover:underline">
             See All
           </Link>

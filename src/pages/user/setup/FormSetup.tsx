@@ -83,8 +83,8 @@ export default function FormSetup() {
           </p>
         </div>
 
-        <div className="w-full py-5 px-7 rounded-xl border-[1px] border-stroke-clr bg-white mb-[30px]">
-          <label htmlFor="title">
+        <div className="w-full py-5 px-7 rounded-xl border-[1px] border-stroke-clr bg-white mb-[30px] flex gap-6">
+          <label htmlFor="title" className="block w-full">
             <p className="text-[16px] font-medium">Form Title</p>
             <Input
               type="text"
@@ -96,6 +96,16 @@ export default function FormSetup() {
                 })
               }
             />
+          </label>
+          <label htmlFor="">
+            <p className="text-[16px]">Verification Type</p>
+            <select name="type" id="type" className="btn px-2">
+              <option value="">Choose Verification Type</option>
+              <option value="personnel">Personnel Verification</option>
+              <option value="loan">Loan Verification Type</option>
+              <option value="criminal">Criminal Record Verification</option>
+              <option value="other">Other Verification</option>
+            </select>
           </label>
         </div>
 

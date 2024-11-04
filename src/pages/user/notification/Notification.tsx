@@ -71,14 +71,16 @@ export default function Notification() {
         >
           <div className="flex items-center gap-2">
             <div
-              className={`w-10 h-10 aspect-square rounded-full ${
+              className={`w-10 h-10 aspect-square rounded-full flex items-center justify-center text-sm ${
                 item.type === 1
                   ? "bg-purple-400"
                   : item.type === 2
                   ? "bg-orange-300"
                   : "bg-green-600"
               }`}
-            ></div>
+            >
+              NT
+            </div>
             <div className="w-full flex justify-between items-center gap-4">
               <div className="w-full">
                 <h3 className="font-medium">{item.title}</h3>

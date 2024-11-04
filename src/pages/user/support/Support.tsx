@@ -2,6 +2,7 @@ import images from "@/assets/Images";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { PaperPlaneIcon } from "@radix-ui/react-icons";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Support() {
@@ -47,6 +48,16 @@ export default function Support() {
       time: "Monday, Oct 12, 2024 | 12:00 AM",
     },
   ];
+
+  const scrollToLastMessage = () => {
+    const messagesBox = document.getElementById("messages-box");
+    if (!messagesBox) return;
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+  };
+
+  useEffect(() => {
+    scrollToLastMessage();
+  }, [messages]);
   return (
     <>
       <div className="mb-[30px]">
@@ -55,7 +66,7 @@ export default function Support() {
       </div>
 
       <div className="w-full flex gap-6">
-        <div className="basis-2/3 bg-white rounded-xl border-[1px] border-stroke-clr overflow-hidden">
+        <div className=" basis-2/3 bg-white rounded-xl border-[1px] border-stroke-clr overflow-hidden">
           <div className="w-full p-4 flex items-center gap-3 border-b-[1px] border-stroke-clr">
             <div className="w-10 h-10 rounded-full aspect-square p-2 border-[1px] border-green-600 relative">
               <img
@@ -72,7 +83,10 @@ export default function Support() {
               </small>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-3 p-3 h-[400px] overflow-y-scroll">
+          <div
+            id="messages-box"
+            className="w-full flex flex-col gap-3 p-3 h-[400px] overflow-y-scroll scroll-smooth"
+          >
             {messages.map((message, idx) => (
               <div
                 key={idx}
