@@ -19,7 +19,7 @@ export default function BackOfficeVerifications() {
       <div className="w-full bg-white rounded-xl border-[1px] border-stroke-clr">
         <div className="flex justify-between items-center p-5">
             <p className="text-[20px] font-semibold">All Verifications</p>
-            <p className="text-[20px] mr-5 flex items-center gap-2 cursor-pointer"><TbFilterSearch /> Filter</p>
+            <p className="text-[16px] mr-5 flex items-center gap-2 cursor-pointer"><TbFilterSearch /> Filter</p>
         </div>
 
         <Table>

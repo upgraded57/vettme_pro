@@ -40,4 +40,4 @@ const PersonnelInfo = () => {
   )
 }
 
-export default PersonnelInfo
+export default PersonnelInfo;
