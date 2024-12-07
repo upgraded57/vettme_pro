@@ -34,7 +34,7 @@ export default function BackOfficeVerifications() {
           </TableHeader>
           <TableBody>
             {verificationsData.map((item) => (
-              <TableRow key={item.id} onClick={() => navigate(item.id)}>
+              <TableRow key={item.id} onClick={() => navigate(`verification/${item.id}`)}>
                 <TableCell className="font-medium">{item.title}</TableCell>
                 <TableCell>{item.personnels}</TableCell>
                 <TableCell>

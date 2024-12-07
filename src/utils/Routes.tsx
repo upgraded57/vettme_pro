@@ -154,18 +154,18 @@ export const routes = [
         element: <BackOfficeDashboard/>,
       },
       {
-        path: "/back-office/:verification_id",
+        path: "/back-office/verification/:verification_id",
         element: <VerificationInfo />,
       },
       {
-        path: "/back-office/:verification_id/personnel/:personnel_id",
+        path: "/back-office/verification/:verification_id/personnel/:personnel_id",
         element: <PersonnelInfo />,
       },
     ]
   },
 
   {
-    path: "/back-office/:verification_id/personnel/:personnel_id/edit",
+    path: "/back-office/verification/:verification_id/personnel/:personnel_id/edit",
     element: (
       <Suspense fallback={<Skeleton />}>
         <EditPersonnelInfo />
